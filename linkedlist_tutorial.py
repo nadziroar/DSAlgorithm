@@ -90,7 +90,7 @@ class LinkedList :
         prev = self.head
         temp = self.head
         while current is not None:
-            if index == position
+            if index == position:
                 temp = current.next
                 break
             prev = current 
