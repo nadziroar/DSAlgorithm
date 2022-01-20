@@ -1,4 +1,7 @@
 #Node class
+from multiprocessing.dummy import current_process
+
+
 class Node :
     #function to initialize the node object
     def __init__(self,  data):
@@ -51,13 +54,58 @@ class LinkedList :
         #6.Change the next of last node
         last.next = new_node
 
+    #Given a reference to the head of a list and a key,
+    #Delete the first occurence of key in linkedlist
+    def deleteNode(self,key):
+        #Store head node
+        temp = self.head
+        #If head node itself holds the key to be deleted
+        if(temp is not None):
+            if(temp.data == key):
+                self.head = temp.next
+                temp = None
+                return
+        #Search for the key to be deleted, keep track of the previous node as we need to change 'prev.next'
+        while(temp is not None):
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+        #If key was not present in LinkedList
+        if(temp == None):
+            return
+        #Unlink the node from LinkedList
+        prev.next = temp.next
+        temp = None
+
+    #Delete the node at a given position
+    def deleteNodePosition (self, position):
+        if self.head is None:
+            return
+        if position == 0 :
+            self.head = self.head.next
+            return self.head
+        index = 0 
+        current = self.head
+        prev = self.head
+        temp = self.head
+        while current is not None:
+            if index == position
+                temp = current.next
+                break
+            prev = current 
+            current = current.next
+            index += 1
+        prev.next = temp 
+        return prev
      #This function prints content of linked list
-    #Starting from head
     def printList(self):
         temp = self.head
         while(temp):
             print(temp.data)
             temp = temp.next
+
+
 
 #Code Execution starts here
 if __name__ == '__main__':
@@ -82,4 +130,8 @@ if __name__ == '__main__':
 
     print ('Created Linked List is : ')
 
+    llist.printList()
+
+    llist.deleteNode(1)
+    print('Linked List after Deletion of 1 : ')
     llist.printList()
