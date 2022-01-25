@@ -1,5 +1,6 @@
 #Node class
 from multiprocessing.dummy import current_process
+from traceback import print_list
 
 
 class Node :
@@ -13,7 +14,6 @@ class LinkedList :
     #function to initalize head
     def __init__(self):
         self.head = None
-
     #Function to insert a new node at the beggining
     def push(self , new_data):
         # 1 & 2 Allocate the node & Put in the data
@@ -22,7 +22,6 @@ class LinkedList :
         new_node.next = self.head
         # 4. Move the head to point to new node
         self.head = new_node
-
     #Inserts a new node after the given prev_node, This defined inside LinkedList class shown above
     def insertAfter (self, prev_node, new_data):
         #1. Check if the given prev_node exists 
@@ -36,7 +35,6 @@ class LinkedList :
         new_node.next = prev_node.next
         #5. Make next of prev_node as new_node
         prev_node.next = new_node
-
     #Appends a new node at the end. This method is defined inside LinkedList class shown above
     def append(self, new_data):
         # 1. Create a new node
@@ -53,7 +51,6 @@ class LinkedList :
             last=last.next
         #6.Change the next of last node
         last.next = new_node
-
     #Given a reference to the head of a list and a key,
     #Delete the first occurence of key in linkedlist
     def deleteNode(self,key):
@@ -77,7 +74,6 @@ class LinkedList :
         #Unlink the node from LinkedList
         prev.next = temp.next
         temp = None
-
     #Delete the node at a given position
     def deleteNodePosition (self, position):
         if self.head is None:
@@ -98,7 +94,18 @@ class LinkedList :
             index += 1
         prev.next = temp 
         return prev
-     #This function prints content of linked list
+    #This function gets counts number of node in LinkedList
+    #Iteratively,  given 'node' as starting node
+    def getCount(self):
+        #Initialise temp, count
+        temp= self.head 
+        count = 0
+        #Loop until the end of LinkedList
+        while(temp):
+            count += 1
+            temp = temp.next
+        return count
+    #This function prints content of linked list
     def printList(self):
         temp = self.head
         while(temp):
@@ -119,11 +126,9 @@ if __name__ == '__main__':
     #Insert 7 at the beggining. So LinkedList becomes
     # 7-> 6 -> None
     llist.push(7)
-
     #Insert 1 at the beginning. So LinkedList becomes 
     # 1 -> 7 -> 6 -> None
     llist.push(1)
-
     #Insert 8 , after 7. So Linkedlist becomes
     # 1 -> 7 -> 8 -> 6 -> 4 -> None
     llist.insertAfter(llist.head.next , 8)
@@ -135,3 +140,36 @@ if __name__ == '__main__':
     llist.deleteNode(1)
     print('Linked List after Deletion of 1 : ')
     llist.printList()
+
+    llist.deleteNodePosition(3)
+    print ('Linked List after Remove Node at position 3 : ')
+    llist.printList()
+    
+    value = 1 
+    while value != -1 :
+        if value == 1 :
+            llist.print_list()
+        elif value == 2 : 
+            num = int(input('Enter new value : '))
+            llist.push(num)
+            llist.print_list()
+        elif value == 3:
+            num = int(input('Enter value for new node : '))
+            position = int(input('Enter the position of new node : '))
+            llist.insertAfter()
+            llist.print_list(num, position)
+        elif value == 4:
+            """Appends a new node at the end. This method is defined inside LinkedList class shown above"""
+            llist.append()
+            llist.print_list()
+        elif value == 5 :
+            """Delete the first occurence of key in linkedlist"""
+            num = int(input('Enter value for new node : '))
+            llist.deleteNode(num)
+            llist.print_list()
+        elif value == 6 :
+            """"""
+            num = int(input('Enter value for new node : '))
+        elif value == 7:
+            """""""
+            
