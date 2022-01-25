@@ -118,58 +118,48 @@ class LinkedList :
 if __name__ == '__main__':
     #Start with empty list
     llist = LinkedList()
-
-    #Insert 6 . So linkedlist becomes 
-    # 6 -> None
-    llist.append(6)
-
-    #Insert 7 at the beggining. So LinkedList becomes
-    # 7-> 6 -> None
-    llist.push(7)
-    #Insert 1 at the beginning. So LinkedList becomes 
-    # 1 -> 7 -> 6 -> None
-    llist.push(1)
-    #Insert 8 , after 7. So Linkedlist becomes
-    # 1 -> 7 -> 8 -> 6 -> 4 -> None
-    llist.insertAfter(llist.head.next , 8)
-
-    print ('Created Linked List is : ')
-
-    llist.printList()
-
-    llist.deleteNode(1)
-    print('Linked List after Deletion of 1 : ')
-    llist.printList()
-
-    llist.deleteNodePosition(3)
-    print ('Linked List after Remove Node at position 3 : ')
-    llist.printList()
-    
-    value = 1 
-    while value != -1 :
+    message = "1. To print the linked list \n " \
+              "2. To push new node at the beggining of the linked list. \n " \
+              "3. To push new node at certain position \n "\
+              "4. To remove last node. \n"\
+              "5. Delete the first occurence of key in linkedlist\n"\
+              "6. Delete Node at certain position\n"\
+              "7. Display the size of linked list\n" 
+              
+    print(message)    
+    value = int(input('Please enter your choice : '))
+    while value != 0 :
+         
         if value == 1 :
-            llist.print_list()
+            llist.printList()
         elif value == 2 : 
             num = int(input('Enter new value : '))
             llist.push(num)
-            llist.print_list()
+            llist.printList()
         elif value == 3:
             num = int(input('Enter value for new node : '))
             position = int(input('Enter the position of new node : '))
-            llist.insertAfter()
-            llist.print_list(num, position)
+            llist.insertAfter(num, position)
+            llist.printList()
         elif value == 4:
             """Appends a new node at the end. This method is defined inside LinkedList class shown above"""
             llist.append()
-            llist.print_list()
+            llist.printList()
         elif value == 5 :
             """Delete the first occurence of key in linkedlist"""
             num = int(input('Enter value for new node : '))
             llist.deleteNode(num)
-            llist.print_list()
+            print('Linked List after deleteNode : ')
+            llist.printList()
         elif value == 6 :
             """"""
-            num = int(input('Enter value for new node : '))
+            pposition = int(input('Enter the position of new node : '))
+            llist.deleteNodePosition(position)
+            llist.printList()
         elif value == 7:
-            """""""
+            """This function gets counts number of node in LinkedList"""
+            llist.getCount()
+        print(message)
+        value = value = int(input('Please enter your choice : '))
+            
             
