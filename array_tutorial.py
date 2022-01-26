@@ -44,6 +44,13 @@ def quickSort (array , low, high):
         quickSort (array , pi + 1 , high)
     
     
+array_num = [5, 10 , 9,3,1,7,19 , 15 , 16 , 12 , 8]
+print ('unsorted array : ' , array_num)
+
+size = len(array_num)
+array_num = quickSort(array_num , 0 , size - 1)
+
+print('Sorted Array in Ascending Order  : ',  array_num)
 
 
 food_ordering = ['nasi lemak' , 'chicken chop' , 'ayam goreng' , 'roti canai' , 'lagsana']
