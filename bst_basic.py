@@ -18,7 +18,7 @@ def search (root , key):
     #Key is smaller than root's key
     return search(root.left , key)
     
-        
+      
 #Function for inserting new node 
 def insert (root ,key): 
     if root is None : 
@@ -38,6 +38,7 @@ def inorder(root):
         print(root.val)
         inorder(root.right)
         
+
 r = Node(50)
 r = insert(r, 30)
 r = insert(r, 20)
