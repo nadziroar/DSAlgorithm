@@ -1,3 +1,7 @@
+#Breadth-First Traversal for a graph is similar to Breadth-First Traversal of a tree. The only catch here is, unlike trees
+#graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once , we use a boolean
+#visited array. For simplicity, it is assumed that all vertices are reachable from the starting vertex.
+
 #Python3 Program to print BFS traversal from a given source vertex. BFS (int s ) traverses vertices reachable from s.
 from collections import defaultdict
 import queue
